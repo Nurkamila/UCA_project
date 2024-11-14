@@ -11,7 +11,7 @@ class SubjectSerializer(serializers.ModelSerializer):
 class StudentProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentProfile
-        fields = ('first_name', 'last_name', 'middle_name', 'photo', 'age')  # Убедимся, что учитель устанавливается автоматически
+        fields = ('first_name', 'last_name', 'middle_name', 'photo')  # Убедимся, что учитель устанавливается автоматически
 
     def create(self, validated_data):
         user = self.context['request'].user
@@ -26,7 +26,7 @@ class GradeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Grade
-        fields = ('student_profile', 'subject', 'grade', 'school_year', 'class_number')
+        fields = ('student_profile', 'subject', 'grade', 'school_year', 'class_number', 'age')
 
 
 
