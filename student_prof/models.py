@@ -14,7 +14,6 @@ class StudentProfile(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, blank=True, null=True)
-    age = models.IntegerField()
     photo = models.ImageField(upload_to='student_photos/', null=False, blank=False)
     pending_transfer_school = models.ForeignKey(School, on_delete=models.SET_NULL, null=True, blank=True, related_name="pending_transfers")
     
@@ -31,9 +30,18 @@ class Grade(models.Model):
         ('2', '2'),
     )
 
+    QUARTER_CHOICES = (
+        ('I', 'I'),
+        ('II', 'II'),
+        ('III', 'III'),
+        ('IV', 'IV')
+    )
+
     student_profile = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name='grades')
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     grade = models.CharField(max_length=1, choices=GRADE_CHOICES)
+    quarter = models.CharField(max_length=5, choices=QUARTER_CHOICES)
+    age = models.IntegerField()
     school_year = models.CharField(max_length=10)
     class_number = models.CharField(max_length=10)
 
