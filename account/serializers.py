@@ -49,10 +49,3 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'middle_name')
-        # read_only_fields = fields
-
-
-# ValueError: Cannot assign "[<School: Средняя школа №8 им. Буйлаш у. А. -> (Нарын), code->(903861032100)>]": "User.school" must be a "School" instance.
-# ATTRS ->  {'email': 'user@example.com', 'password': 'Lalisa18$', 'region': <Region: Нарын>, 'school': <School: Средняя школа №8 им. Буйлаш у. А. -> (Нарын), code->(903861032100)>, 'school_code': '903861032100'}
-
-# VALID DATA ->  {'email': 'user@example.com', 'password': 'Lalisa18$', 'region': <Region: Нарын>, 'school': <School: Средняя школа №8 им. Буйлаш у. А. -> (Нарын), code->(903861032100)>, 'school_code': '903861032100'}

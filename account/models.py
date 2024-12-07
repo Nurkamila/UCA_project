@@ -48,8 +48,6 @@ class School(models.Model):
     def get_director(self):
         director = User.objects.filter(school=self, role='director').first()
         return f"{director.email}" if director else "No director"
-    
-    # get_director.short_description = "Director"
 
 
 class User(AbstractUser):
